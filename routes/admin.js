@@ -11,7 +11,7 @@ const products = [];
 // /admin/add-product => GET
 router.get('/add-product', (req, res, next) => {
   // res.sendFile(path.join(rootDir, 'views', 'add-product.html'));
-  res.render('add-product',{docTitle:'Add Product', path: '/admin/add-product',formsCSS: true,productCSS: true, activeAddProduct: true});
+  res.render('add-product',{docTitle:'Add Product', path: '/admin/add-product'});
 });
 
 // /admin/add-product => POST
