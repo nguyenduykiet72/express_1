@@ -21,15 +21,21 @@ exports.getIndex = async (req, res, next) => {
 exports.getCart = async (req, res, next) => {
   const products = await Product_model.fetchAll();
   res.render("shop/cart", {
-    prods: products,
     docTitle: "My Cart",
     path: "/cart",
+  });
+}
+
+exports.getOrders = async (req, res, next) => {
+  const products = await Product_model.fetchAll();
+  res.render("shop/orders", {
+    docTitle: "My Orders",
+    path: "/orders",
   });
 }
 exports.getCheckout = async (req, res, next) => {
   const products = await Product_model.fetchAll();
   res.render("shop/checkout", {
-    prods: products,
     docTitle: "Checkout",
     path: "/checkout",
   });
