@@ -30,4 +30,5 @@ module.exports = class Product {
     let data = await fs.readFile(p);
     return JSON.parse(data);
   }
+  //quan thu 
 };

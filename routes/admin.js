@@ -10,6 +10,7 @@ router.get("/add-product",adminController.getAddProduct);
 
 // /admin/add-product => GET
 router.get("/products",adminController.getProducts);
+//quan thu 
 
 
 // /admin/add-product => POST
