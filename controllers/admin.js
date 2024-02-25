@@ -1,4 +1,4 @@
-const Product_model = require("../models/p  roduct");
+const Product_model = require("../models/product");
 exports.getAddProduct = (req, res, next) => {
   res.render("admin/add-product", {
     docTitle: "Add Product",
@@ -16,7 +16,6 @@ exports.postAddProduct = (req, res, next) => {
   res.redirect("/");
 };
 
-//test
 
 exports.getProducts = async (req, res, next) => {
   const products = await Product_model.fetchAll();
