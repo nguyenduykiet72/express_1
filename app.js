@@ -1,6 +1,13 @@
 const path = require("path");
 const express = require("express");
 const app = express();
+const httpServer = require("http").createServer(app);
+const io = require('socket.io')(httpServer, {
+    cors: {
+        origin: "http://localhost:3000",
+        methods: ["GET", "POST"]
+    }
+});
 const PORT = 8080;
 app.set('view engine', 'ejs');
 
@@ -17,5 +24,6 @@ app.use(shopRoutes);
 
 app.use(errorController.get404);
 
-app.listen(PORT)
-
+httpServer.listen(PORT,()=>{
+    console.log(`Server is running on port ${PORT}`)
+});

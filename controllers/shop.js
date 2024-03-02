@@ -1,3 +1,4 @@
+const Product = require("../models/product");
 const Product_model = require("../models/product");
 
 exports.getProducts = async (req, res, next) => {
@@ -6,6 +7,17 @@ exports.getProducts = async (req, res, next) => {
     prods: products,
     docTitle: "All Products",
     path: "/products",
+  });
+};
+
+exports.getProduct = async (req, res, next) => {
+  const proId = req.params.productId;
+  const product = await Product.findById(proId);
+  // console.log(await Product.findById(proId));
+  res.render('shop/product-detail', {
+    product: product,
+    docTitle: product.title,
+    path: '/products'
   });
 };
 
@@ -25,7 +37,6 @@ exports.getCart = async (req, res, next) => {
     path: "/cart",
   });
 }
-
 exports.getOrders = async (req, res, next) => {
   const products = await Product_model.fetchAll();
   res.render("shop/orders", {
