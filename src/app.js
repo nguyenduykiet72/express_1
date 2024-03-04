@@ -17,6 +17,7 @@ const errorController= require('./controllers/error')
 
 app.use(express.urlencoded({ extended: true })); // parsing the incoming requests
 app.use(express.static(path.join(__dirname, "public")));
+app.set('views', path.join(__dirname, 'views'));
 // app.use(express.static(path.join(__dirname,'controllers')));
 
 app.use('/admin',adminRoutes);
